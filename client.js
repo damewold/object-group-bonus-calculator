@@ -45,8 +45,10 @@ const employees = [
 //You are going to write a single JavaScript file to automatically calculate employee bonus for a company.
 //Write a declared function that takes in one **Employee** object (as an argument to the function), and returns a new **object** with the following properties:
 
-let newArray = [];
 
+for(i=0;i<employees.length;i++){
+  console.log(newInformation(employees[i]));
+}
 
 
   // let newObject = {
@@ -57,23 +59,48 @@ let newArray = [];
   // }
 
 function newInformation(employee){
-  let Name = employee.name;
+  
    let bonusPercentage=0;
-   let totalCompensation=0;
+   let totalCompensation= 0;
    let totalBonus = 0;
   
-  if (employees[i].reviewRating <= 2){
+  if (employee.reviewRating <= 2){
     bonusPercentage=0;
-  }else if(employees[i].reviewRating === 3){
+  }else if(employee.reviewRating === 3){
     bonusPercentage=.04;
-  }else if (employees[i].reviewRating === 4){
+  }else if (employee.reviewRating === 4){
     bonusPercentage=.06;
-  }else if(employees[i].reviewRating === 5){
+  }else if(employee.reviewRating === 5){
     bonusPercentage=.1;
   }
 
+//If their employee number is 4 digits long, 
+//this means they have been with the company for longer than 15 years,
+//and should receive an additional 5%.
+if(employee.employeeNumber.length===4){
+      bonusPercentage+=.05;
+};
 
+if(Number(employee.annualSalary)>=65000){
+  bonusPercentage-=.01;
+};
 
+if(bonusPercentage>.13){
+  bonusPercentage=.13;
+};
 
+if(bonusPercentage<0){
+  bonusPercentage=0;
+};
 
+totalBonus=bonusPercentage*Number(employee.annualSalary);
+totalCompensation=Number(employee.annualSalary)+totalBonus;
 
+let calculatedBonus={
+  name:employee.name,
+  bonusPercentage: bonusPercentage,
+  totalCompensation: totalCompensation,
+  totalBonus:totalBonus
+}
+return calculatedBonus
+}
