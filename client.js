@@ -63,13 +63,16 @@ function newInformation(employee){
    let bonusPercentage=0;
    let totalCompensation= 0;
    let totalBonus = 0;
-  
+//Those who have a rating of a 2 or below should not receive a bonus
   if (employee.reviewRating <= 2){
     bonusPercentage=0;
+//Those who have a rating of a 3 should receive a base bonus of 4% of their base annual income
   }else if(employee.reviewRating === 3){
     bonusPercentage=.04;
+//Those who have a rating of a 4 should receive a base bonus of 6% of their base annual income
   }else if (employee.reviewRating === 4){
     bonusPercentage=.06;
+//Those who have a rating of a 5 should receive a base bonus of 10% of their base annual income
   }else if(employee.reviewRating === 5){
     bonusPercentage=.1;
   }
@@ -80,11 +83,11 @@ function newInformation(employee){
 if(employee.employeeNumber.length===4){
       bonusPercentage+=.05;
 };
-
+//if their annual income is greater than $65,000, they should have their bonus adjusted down 1%
 if(Number(employee.annualSalary)>=65000){
   bonusPercentage-=.01;
 };
-
+//No bonus can be above 13% or below 0% total
 if(bonusPercentage>.13){
   bonusPercentage=.13;
 };
