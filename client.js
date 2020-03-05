@@ -1,3 +1,4 @@
+$(document).ready(displayCalc);
 const employees = [
   {
     name: 'Atticus',
@@ -48,6 +49,7 @@ const employees = [
 
 for(i=0;i<employees.length;i++){
   console.log(newInformation(employees[i]));
+ 
 }
 
 
@@ -107,3 +109,15 @@ let calculatedBonus={
 }
 return calculatedBonus
 }
+
+function displayCalc(){
+  console.log('in displaycalc');
+  for(i=0;i<employees.length;i++){
+    let newObj=(newInformation(employees[i]));
+    let calculatorResult=$('#calculator');
+    calculatorResult.empty();
+    console.log('in displayCalc');
+    calculatorResult.append(`<li>`+'name: ' + newObj.name + 'bonusPercentage: ' + newObj.bonusPercentage + 'total compensation: '+newObj.totalCompensation + 'totalBonus: '+newObj.totalBonus + `</li>`);
+  };
+};
+ 
