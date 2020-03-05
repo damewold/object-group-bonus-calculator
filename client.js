@@ -110,13 +110,16 @@ let calculatedBonus={
 return calculatedBonus
 }
 
+
+
+
 function displayCalc(){
   console.log('in displaycalc');
   for(i=0;i<employees.length;i++){
-    let newObj=(newInformation(employees[i]));
     let calculatorResult=$('#calculator');
     calculatorResult.empty();
     console.log('in displayCalc');
+  let newObj=(newInformation(employees[i]));
     calculatorResult.append(`<li>`+'Name: ' + newObj.name +' Bonus Percentage: ' + newObj.bonusPercentage +' Total Compensation: '+newObj.totalCompensation + ' Total Bonus: '+newObj.totalBonus + `</li>`);
   };
 };
