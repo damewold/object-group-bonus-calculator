@@ -117,7 +117,7 @@ function displayCalc(){
     let calculatorResult=$('#calculator');
     calculatorResult.empty();
     console.log('in displayCalc');
-    calculatorResult.append(`<li>`+'name: ' + newObj.name + 'bonusPercentage: ' + newObj.bonusPercentage + 'total compensation: '+newObj.totalCompensation + 'totalBonus: '+newObj.totalBonus + `</li>`);
+    calculatorResult.append(`<li>`+'Name: ' + newObj.name +' Bonus Percentage: ' + newObj.bonusPercentage +' Total Compensation: '+newObj.totalCompensation + ' Total Bonus: '+newObj.totalBonus + `</li>`);
   };
 };
  
